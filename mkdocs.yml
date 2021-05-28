@@ -1,0 +1,36 @@
+site_name: TeSLA CE Providers Python SDK
+site_url: https://tesla-ce.github.io/python-provider-sdk/
+site_author: Xavier Baro
+
+nav:
+    - Home: index.md
+    - Client: client.md
+
+theme:
+  name: "material"
+  custom_dir: overrides
+
+markdown_extensions:
+  - admonition
+
+plugins:
+  - search
+  - autorefs
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          setup_commands:
+            - import sys
+            - sys.path.insert(0, "src")
+            - print('INITIALIZED')
+          rendering:
+            show_source: true
+          selection:
+            docstring_style: restructured-text
+      watch:
+        - src/tesla_ce_provider
+extra:
+  version:
+    provider: mike
+

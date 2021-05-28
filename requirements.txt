@@ -1,0 +1,7 @@
+tesla-ce-client
+celery
+gevent
+simplejson
+
+# Error tracking
+sentry-sdk
