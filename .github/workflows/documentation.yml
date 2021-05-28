@@ -57,9 +57,13 @@ jobs:
         if: github.event_name != 'release'
         run: |
           mike deploy --push ${{ steps.vars.outputs.version }}
+        env:
+          DEBUG: True
       - name: Update latest documentation
         if: github.event_name == 'release'
         run: |
           mike deploy --push --update-aliases ${{ steps.vars.outputs.version }} latest
           mike set-default --push latest
+        env:
+          DEBUG: True
 

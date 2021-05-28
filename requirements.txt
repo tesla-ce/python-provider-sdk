@@ -1,5 +1,5 @@
 tesla-ce-client
-celery
+celery==5.0.5
 gevent
 simplejson
 

@@ -16,24 +16,31 @@
 import os
 from celery import Celery
 from kombu import Exchange, Queue
-from tesla_ce_client import Client
+from tesla_ce_client import Client, exception
 
 client = None
-if os.getenv("SSL_VERIFY") in ['0', 0, 'False', 'false']:
-    client = Client(verify_ssl=False)
-else:
-    client = Client()
+try:
+    if os.getenv("SSL_VERIFY") in ['0', 0, 'False', 'false']:
+        client = Client(verify_ssl=False)
+    else:
+        client = Client()
+except exception.TeslaConfigException as tce:
+    # Enforce valid configuration except when DEBUG is enabled
+    if os.getenv('DEBUG', False) not in [1, '1', True, 'True', 'true']:
+        raise tce
 
-app = Celery('tesla_provider')
+
+app = Celery('tesla_ce_provider')
 
 # Using a string here means the worker doesn't have to serialize
 # the configuration object to child processes.
 # - namespace='CELERY' means all celery-related configuration keys
 #   should have a `CELERY_` prefix.
-app.config_from_object(client.config, namespace='CELERY')
+if client is not None:
+    app.config_from_object(client.config, namespace='CELERY')
 
 # Get the queues to consume from
-if client.module:
+if client is not None and client.module:
     queues = client.module['provider_queue']
     queues = queues.replace(' ', '').split(',')
 

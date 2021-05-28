@@ -67,7 +67,7 @@ class BaseModel:
         """
             Add given sample to model
             :param sample: Sample object
-            :type sample: tesla_provider.models.base.Sample
+            :type sample: tesla_ce_provider.models.base.Sample
             :param features: Optional provider representation for this sample
             :type features: dict
         """
@@ -174,7 +174,7 @@ class SimpleModel(BaseModel):
         """
             Add given sample to model and update the enrolment percentage
             :param sample: Sample object
-            :type sample: tesla_provider.models.base.Sample
+            :type sample: tesla_ce_provider.models.base.Sample
             :param features: Optional provider representation for this sample
             :type features: dict
         """

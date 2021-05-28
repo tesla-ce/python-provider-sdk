@@ -92,7 +92,7 @@ class BaseProvider:
             :param result_id: Request result identification
             :type result_id: int
             :return: Verification result
-            :rtype: tesla_provider.result.VerificationResult
+            :rtype: tesla_ce_provider.result.VerificationResult
         """
         raise NotImplementedError('Method not implemented on provider')
 
@@ -104,7 +104,7 @@ class BaseProvider:
             :param model: Current model
             :type model: dict
             :return: Enrolment result
-            :rtype: tesla_provider.result.EnrolmentResult
+            :rtype: tesla_ce_provider.result.EnrolmentResult
         """
         raise NotImplementedError('Method not implemented on provider')
 
@@ -112,11 +112,11 @@ class BaseProvider:
         """
             Validate an enrolment sample
             :param sample: Enrolment sample
-            :type sample: tesla_provider.models.base.Sample
+            :type sample: tesla_ce_provider.models.base.Sample
             :param validation_id: Validation identification
             :type validation_id: int
             :return: Validation result
-            :rtype: tesla_provider.result.ValidationResult
+            :rtype: tesla_ce_provider.result.ValidationResult
         """
         raise NotImplementedError('Method not implemented on provider')
 
@@ -135,7 +135,7 @@ class BaseProvider:
             Schedule a notification task
 
             :param notification: Notification object
-            :type: tesla_provider.result.NotificationTask
+            :type: tesla_ce_provider.result.NotificationTask
         """
         # Add notification to the list of notifications
         self._notifications.append(notification)
@@ -145,7 +145,7 @@ class BaseProvider:
             Schedule a delayed result
 
             :param result: Result
-            :type: tesla_provider.result.DelayedResult
+            :type: tesla_ce_provider.result.DelayedResult
         """
         self._delayed_results.append(result)
 
