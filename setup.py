@@ -48,5 +48,5 @@ setuptools.setup(
     include_package_data=True,
     install_requires=requirements,
     tests_require=requirements_test,
-    entry_points={"pytest11": ["tesla_provider_fixtures=tesla_provider_fixtures.fixtures"]}
+    entry_points={"pytest11": ["tesla_ce_provider_fixtures=tesla_ce_provider_fixtures.fixtures"]}
 )
