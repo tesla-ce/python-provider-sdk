@@ -197,7 +197,7 @@ class Request:
             :rtype: str
         """
         if self._object is not None and 'data' in self._object:
-            return self._object['data']['data']
+            return self._object['data']
         return None
 
     @property
