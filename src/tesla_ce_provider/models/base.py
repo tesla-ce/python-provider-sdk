@@ -196,8 +196,8 @@ class Request:
             :return: The base64 codification of the sample as provided by sensors
             :rtype: str
         """
-        if self._object is not None and 'data' in self._object:
-            return self._object['data']
+        if self._object is not None and 'data' in self._object and 'data' in self._object['data']:
+            return self._object['data']['data']
         return None
 
     @property
