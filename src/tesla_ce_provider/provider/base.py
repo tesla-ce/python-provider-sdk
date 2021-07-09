@@ -82,15 +82,13 @@ class BaseProvider:
         """
         pass
 
-    def verify(self, request, model, result_id):
+    def verify(self, request, model):
         """
             Verify a learner request
             :param request: Verification request
             :type request: dict
             :param model: Provider model
             :type model: dict
-            :param result_id: Request result identification
-            :type result_id: int
             :return: Verification result
             :rtype: tesla_ce_provider.result.VerificationResult
         """

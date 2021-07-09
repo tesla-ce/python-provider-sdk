@@ -45,7 +45,7 @@ class VerificationTask(BaseTask):
         try:
             request = self.client.provider.verification.get_provider_request_result(
                 self.client._connector.get_provider_id(),
-                result_id)
+                request_id)
         except ObjectNotFoundException:
             raise Reject('Request not found')
 
@@ -72,23 +72,23 @@ class VerificationTask(BaseTask):
 
         # Perform enrolment process
         try:
-            verify_response = self.provider.verify(Request(request), model=model_data, result_id=result_id)
+            verify_response = self.provider.verify(Request(request), model=model_data)
         except Exception as exc:
             raise Reject('Exception from provider: ' + exc.__str__())
 
         if isinstance(verify_response, VerificationResult):
             # Store verification result
             self.client.provider.verification.set_provider_request_result(self.client._connector.get_provider_id(),
-                                                                          result_id, verify_response.json())
+                                                                          request_id, verify_response.json())
         elif isinstance(verify_response, VerificationDelayedResult):
-            self.client.provider.verification.set_provider_request_status(self.get_provider_id(), result_id,
+            self.client.provider.verification.set_provider_request_status(self.get_provider_id(), request_id,
                                                                           RequestResultStatus.WAITING_EXTERNAL_SERVICE)
         else:
             exc = RuntimeError("Unexpected result type in verify")
             self.capture_exception(exc)
             verify_response = VerificationResult(False, error_message="Internal provider error",
                                                  message_code="INTERNAL_ERROR")
-            self.client.provider.verification.set_provider_request_result(self.get_provider_id(), result_id,
+            self.client.provider.verification.set_provider_request_result(self.get_provider_id(), request_id,
                                                                           verify_response.json())
 
             raise exc

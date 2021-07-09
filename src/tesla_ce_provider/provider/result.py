@@ -208,7 +208,7 @@ class EnrolmentDelayedResult:
 
     def json(self):
         return {
-            'result': self.json(),
+            'result': self.result.json(),
             'info': self.info,
             'status': self.status,
             'learner_id': self.learner_id,
@@ -244,7 +244,7 @@ class ValidationDelayedResult:
 
     def json(self):
         return {
-            'result': self.json(),
+            'result': self.result.json(),
             'info': self.info,
             'status': self.status,
             'learner_id': self.learner_id,
@@ -273,7 +273,7 @@ class VerificationDelayedResult:
 
     def json(self):
         return {
-            'result': self.json(),
+            'result': self.result.json(),
             'info': self.info,
             'status': self.status,
             'request_id': self.request_id,
