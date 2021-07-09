@@ -14,7 +14,7 @@
         <link rel="canonical" href="https://tesla-ce.github.io/python-provider-sdk/0.0.3/client/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
     
     
       
@@ -7224,7 +7224,7 @@
 
 
 <h5 id="tesla_ce_provider.provider.base.BaseProvider.verify" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">verify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">result_id</span><span class="p">)</span></code>
+<code class="highlight language-python"><span class="n">verify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span></code>
 
 
 </h5>
@@ -7256,12 +7256,6 @@
         <td><p>Provider model</p></td>
         <td><em>required</em></td>
       </tr>
-      <tr>
-        <td><code>result_id</code></td>
-        <td><code>int</code></td>
-        <td><p>Request result identification</p></td>
-        <td><em>required</em></td>
-      </tr>
   </tbody>
 </table>
 <p><strong>Returns:</strong></p>
@@ -7281,15 +7275,13 @@
 </table>
         <details class="quote">
           <summary>Source code in <code>tesla_ce_provider/provider/base.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">verify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">result_id</span><span class="p">):</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">verify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Verify a learner request</span>
 <span class="sd">        :param request: Verification request</span>
 <span class="sd">        :type request: dict</span>
 <span class="sd">        :param model: Provider model</span>
 <span class="sd">        :type model: dict</span>
-<span class="sd">        :param result_id: Request result identification</span>
-<span class="sd">        :type result_id: int</span>
 <span class="sd">        :return: Verification result</span>
 <span class="sd">        :rtype: tesla_ce_provider.result.VerificationResult</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -9566,10 +9558,10 @@ that are not included in current model.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.b0710199.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.477d984a.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.76f349be.min.js"></script>
+      <script src="../assets/javascripts/bundle.82b56eb2.min.js"></script>
       
     
   </body>
