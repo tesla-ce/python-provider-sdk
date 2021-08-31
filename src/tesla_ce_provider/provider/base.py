@@ -20,6 +20,12 @@ from .. import models
 class BaseProvider:
     """ Base class for TeSLA CE Instrument providers """
 
+    #: Credentials required by this provider
+    _required_credentials = []
+
+    #: Credentials read from environment variables or secrets
+    _credentials = {}
+
     def __init__(self):
         #: Notification tasks
         self._notifications = []
@@ -38,6 +44,31 @@ class BaseProvider:
 
         #: Base model
         self._model_class = models.BaseModel
+
+    @classmethod
+    def get_required_credentials(cls):
+        """
+            Get the credentials required by the provider
+            :return: List of credential names (environment variables or secrets)
+        """
+        return cls._required_credentials
+
+    @property
+    def credentials(self):
+        """
+            Access to the provider credentials
+            :return: Provider credentials
+        """
+        return self._credentials
+
+    def set_credential(self, key, value):
+        """
+            Set a provider credential
+
+            :param key: Credential Key
+            :param value: Credential value
+        """
+        self._credentials[key] = value
 
     @staticmethod
     def get_provider(provider=None):

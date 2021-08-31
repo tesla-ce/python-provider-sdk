@@ -63,6 +63,10 @@ class BaseTask(Task):
         if self._provider is None:
             self._provider = BaseProvider.get_provider()
             self._provider.set_logger(self.add_trace)
+        # Set required credentials
+        for key in self._provider.get_required_credentials():
+            value = self.client._find_config_value(key)
+            self._provider.set_credential(key, value)
         # Update provider options
         if self._provider is not None:
             self._provider.provider_id = self.get_provider_id()
