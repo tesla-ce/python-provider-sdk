@@ -34,7 +34,8 @@ if os.getenv('SENTRY_ENABLED') in ['1', 1, 'True', 'yes', 'true'] and os.getenv(
         max_breadcrumbs=50,
         debug=os.getenv('DEBUG', '0') in ['1', 1, 'True', 'yes', 'true'],
         release=os.getenv('PROVIDER_VERSION', 'n/a'),
-        environment=os.getenv('SENTRY_ENVIRONMENT', 'production')
+        environment=os.getenv('SENTRY_ENVIRONMENT', 'production'),
+        server_name=os.getenv('SENTRY_SERVER_NAME', None)
     )
 
 

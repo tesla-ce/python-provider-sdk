@@ -37,6 +37,14 @@ app = Celery('tesla_ce_provider')
 # - namespace='CELERY' means all celery-related configuration keys
 #   should have a `CELERY_` prefix.
 if client is not None:
+    # Allow customize host and port
+    custom_host = os.getenv('CELERY_BROKER_HOST', None)
+    custom_port = os.getenv('CELERY_BROKER_PORT', None)
+    if custom_host is not None:
+        client.config['CELERY_BROKER_HOST'] = custom_host
+    if custom_port is not None:
+        client.config['CELERY_BROKER_PORT'] = custom_port
+
     app.config_from_object(client.config, namespace='CELERY')
 
 # Get the queues to consume from
