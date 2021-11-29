@@ -14,7 +14,11 @@
 #      along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """ TeSLA CE Audit package """
 from .fr import FaceRecognitionAudit
+from .ks import KeystrokeAudit
+from .tp import PlagiarismAudit
 
 __all__ = [
     "FaceRecognitionAudit",
+    "KeystrokeAudit",
+    "PlagiarismAudit"
 ]
